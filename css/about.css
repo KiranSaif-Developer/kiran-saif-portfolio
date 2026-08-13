@@ -1,0 +1,215 @@
+/* ===================================================================
+   ABOUT PAGE — Theme Adaptive Styling (Dark & Light Mode Friendly)
+   =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+/* ---------- Handwritten Note & Snapshot Card ---------- */
+.snapshot-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #00b87a !important; /* Slightly darker emerald for visibility on light bg */
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: rotate(-2deg);
+}
+
+.snapshot-card {
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 3rem 1.5rem;
+    transform: rotate(-2.5deg);
+    transition: var(--transition-smooth, all 0.3s ease);
+    margin-bottom: 1.2rem;
+}
+
+.snapshot-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    border-color: #00f5a0;
+}
+
+.snapshot-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.snapshot-avatar-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 245, 160, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+    background: radial-gradient(circle, rgba(0, 245, 160, 0.12) 0%, transparent 70%);
+}
+
+/* Card Inside Text Colors */
+.snapshot-tag-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a) !important; /* Black in Light, White in Dark */
+    letter-spacing: normal;
+}
+
+.snapshot-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #475569) !important;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Heading Block ---------- */
+.about-heading-block {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.about-hr-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.about-hr {
+    flex: 1;
+    max-width: 160px;
+    height: 1px;
+    background: var(--border-color, rgba(0,0,0,0.1));
+}
+
+.about-subtitle {
+    margin-top: 0.8rem;
+    color: var(--text-secondary, #475569) !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ---------- Intro Grid Paragraphs (Main Fix) ---------- */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.intro-text-col p {
+    color: var(--text-primary, #0f172a) !important; /* Main Bio Text Fix */
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+}
+
+/* ---------- Footer Two-Column Section ---------- */
+.footer-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+}
+
+.things-heading {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    color: #00b87a !important; /* Direct Emerald Green */
+    font-weight: 700;
+}
+
+/* Things I Love Cards */
+.love-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.love-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    border-radius: 30px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--text-primary, #0f172a) !important;
+    font-weight: 500;
+    transition: var(--transition-fast, all 0.2s ease);
+}
+
+.love-item i {
+    color: #00b87a;
+}
+
+.love-item:hover {
+    border-color: #00f5a0;
+    transform: translateY(-2px);
+}
+
+/* ---------- Look What I Can Do Checklist (Main Fix) ---------- */
+.checklist-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 2rem;
+}
+
+.do-checklist {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.do-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-primary, #0f172a) !important; /* Checklist Text Fix */
+    font-size: 0.98rem;
+    font-weight: 500;
+}
+
+.do-checklist li i {
+    color: #00a86b;
+    font-size: 0.75rem;
+    background: rgba(0, 245, 160, 0.15);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .snapshot-card, .snapshot-note {
+        transform: rotate(0deg);
+    }
+    .intro-grid, .footer-two-col {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .intro-photo-col {
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 500px) {
+    .checklist-columns {
+        grid-template-columns: 1fr;
+    }
+}

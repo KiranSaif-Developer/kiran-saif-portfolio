@@ -1,0 +1,354 @@
+/* ===================================================================
+   PROJECTS PAGE — Editorial showcase layout with live previews
+   =================================================================== */
+
+#view-projects {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4rem;
+}
+
+.projects-intro {
+    max-width: 560px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: -0.5rem 0 2.5rem;
+}
+
+.projects-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* ---- Card shell ---- */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    min-height: unset;
+    padding: 0;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent-emerald), var(--accent-cyan));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-card.hide {
+    display: none;
+}
+
+/* Featured first card — now renders as a normal grid card (no full-width row layout) */
+
+/* ---- Browser chrome + screenshot ---- */
+.proj-preview {
+    position: relative;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.proj-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.proj-browser-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.proj-browser-dot.red { background: #ff5f56; }
+.proj-browser-dot.yellow { background: #ffbd2e; }
+.proj-browser-dot.green { background: #27c93f; }
+
+.proj-browser-url {
+    margin-left: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.2rem 0.75rem;
+    border-radius: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.proj-screenshot-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(var(--accent-emerald-rgb), 0.05) 100%);
+}
+
+.project-card.proj-featured .proj-screenshot-wrap {
+    height: 100%;
+    min-height: 280px;
+}
+
+.proj-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .proj-screenshot {
+    transform: scale(1.04);
+}
+
+.proj-screenshot-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    background: linear-gradient(160deg, rgba(139, 92, 246, 0.12) 0%, rgba(var(--accent-cyan-rgb), 0.06) 100%);
+}
+
+.proj-screenshot-fallback i {
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+
+.proj-screenshot-fallback span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.proj-screenshot-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.04) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: proj-shimmer 1.4s infinite;
+    pointer-events: none;
+}
+
+.proj-screenshot-wrap.loaded .proj-screenshot-shimmer {
+    display: none;
+}
+
+@keyframes proj-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ---- Card body ---- */
+.proj-body {
+    padding: 1.5rem 1.6rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.proj-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.proj-index {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.85;
+}
+
+.proj-category {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(var(--accent-emerald-rgb), 0.25);
+    background: rgba(var(--accent-emerald-rgb), 0.08);
+    color: var(--accent-emerald);
+    white-space: nowrap;
+}
+
+.proj-category.wordpress {
+    border-color: rgba(33, 117, 155, 0.35);
+    background: rgba(33, 117, 155, 0.12);
+    color: #5ec8e8;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.25;
+}
+
+.project-card.proj-featured .project-title {
+    font-size: 1.65rem;
+}
+
+.project-desc {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.25rem 0 0;
+}
+
+.project-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    color: var(--accent-cyan);
+    transition: var(--transition-fast);
+}
+
+.project-card:hover .project-tag {
+    border-color: rgba(var(--accent-cyan-rgb), 0.25);
+}
+
+/* ---- Action buttons ---- */
+.proj-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.proj-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.proj-btn:hover {
+    border-color: var(--accent-emerald);
+    color: var(--accent-emerald);
+    background: rgba(var(--accent-emerald-rgb), 0.06);
+}
+
+.proj-btn-primary {
+    background: linear-gradient(135deg, rgba(var(--accent-emerald-rgb), 0.15), rgba(var(--accent-cyan-rgb), 0.1));
+    border-color: rgba(var(--accent-emerald-rgb), 0.3);
+    color: var(--accent-emerald);
+}
+
+.proj-btn-primary:hover {
+    background: linear-gradient(135deg, rgba(var(--accent-emerald-rgb), 0.25), rgba(var(--accent-cyan-rgb), 0.15));
+    box-shadow: 0 0 20px rgba(var(--accent-emerald-rgb), 0.15);
+}
+
+.proj-btn i {
+    font-size: 0.85rem;
+}
+
+/* ---- Empty state ---- */
+.projects-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 4rem 2rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+    .projects-showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .projects-showcase {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .proj-body {
+        padding: 1.25rem;
+    }
+
+    .proj-index {
+        font-size: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.15rem;
+    }
+}

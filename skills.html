@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Kiran Saif</title>
+    <meta name="description" content="Technical Skills and Specialties of Kiran Saif - Full-Stack Engineer and WordPress Specialist.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Dynamic Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="logo">
+                Kiran Saif<span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link active">Skills</a></li>
+                <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="tips.html" class="nav-link">Tips</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-cv" id="nav-cv-btn" target="_blank"><i class="fa-solid fa-download"></i> CV</a>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 100px;">
+        <section class="skills-section" id="skills">
+            <div class="skills-container">
+                
+                <!-- Section Title Header -->
+                <div class="skills-header">
+                    <h2 class="section-title">Technical <span>Skills</span></h2>
+                    <p class="skills-subtitle">A categorized breakdown of my technical stack, tools, and professional specialties.</p>
+                </div>
+
+                <div class="skills-grid" id="skills-grid">
+                    <!-- Rendered dynamically by js/skills.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Professional Multi-Column Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 0.5rem;">
+                        Kiran Saif<span class="logo-dot"></span>
+                    </div>
+                    <p>Senior Full-Stack Engineer and Custom WordPress Specialist building lightweight digital tools that drive sales conversions and site performance.</p>
+                    <div class="footer-status">
+                        <span class="footer-status-dot"></span>
+                        Available for Contracts
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Sitemap</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="tips.html">Tips</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-emerald); margin-right: 0.5rem;"></i> kiransaif.gul@gmail.com</p>
+                    <p><i class="fa-brands fa-github" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> <a href="https://github.com/KiranSaif-Developer" target="_blank">KiranSaif-Developer</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright" id="copyright-text">
+                    &copy; 2026 Kiran Saif. All Rights Reserved. Built with precision.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.75rem;">Designed strictly for professional conversions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/skills-data.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

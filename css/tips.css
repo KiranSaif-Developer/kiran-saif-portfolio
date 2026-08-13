@@ -1,0 +1,176 @@
+/* ===================================================================
+   TIPS PAGE — "Dev journal" card grid with numbered entries
+   =================================================================== */
+
+#view-tips {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4rem;
+}
+
+.tips-intro {
+    max-width: 560px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: -0.5rem 0 2.5rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+/* ---- Card shell ---- */
+.tip-card {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.5rem 1.4rem;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.tip-card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tip-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.tip-card:hover::after {
+    transform: scaleX(1);
+}
+
+.tip-card.hide {
+    display: none;
+}
+
+/* ---- Index gutter (monospace line-number style) ---- */
+.tip-index {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    opacity: 0.5;
+    flex-shrink: 0;
+    line-height: 1.2;
+}
+
+.tip-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.tip-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.tip-category {
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    border: 1px solid rgba(var(--accent-emerald-rgb), 0.25);
+    background: rgba(var(--accent-emerald-rgb), 0.08);
+    color: var(--accent-emerald);
+    white-space: nowrap;
+}
+
+.tip-date {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.tip-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.tip-excerpt {
+    color: var(--text-secondary);
+    font-size: 0.87rem;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tip-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+.tip-readmore i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.tip-card:hover .tip-readmore i {
+    transform: translateX(4px);
+}
+
+/* ---- Empty state ---- */
+.tips-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 4rem 2rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}

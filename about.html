@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Kiran Saif</title>
+    <meta name="description" content="Learn about Kiran Saif's background, capabilities, and career timeline as a Full-Stack Engineer and WordPress Specialist.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 0. Dynamic Story Mode Preloader Overlay -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-avatar">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="#111827" stroke="rgba(0, 245, 160, 0.25)" stroke-width="2"/>
+                    <path d="M25 80 C 25 65, 75 65, 75 80 Z" fill="#1e293b"/>
+                    <rect x="46" y="55" width="8" height="10" rx="3" fill="#fbcfe8"/>
+                    <circle cx="50" cy="45" r="16" fill="#fbcfe8"/>
+                    <path d="M34 45 C 34 30, 66 30, 66 45 C 62 38, 38 38, 34 45 Z" fill="#0f172a"/>
+                    <rect x="40" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
+                    <rect x="52" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
+                    <line x1="48" y1="44" x2="52" y2="44" stroke="#00f5a0" stroke-width="1.5"/>
+                    <path d="M47 52 Q 50 55, 53 52" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
+                    <g class="wave-animation">
+                        <path d="M72 65 C 78 50, 85 52, 85 58 C 85 64, 76 75, 76 75" fill="none" stroke="#fbcfe8" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M72 65 C 75 60, 78 62, 78 62" fill="none" stroke="#1e293b" stroke-width="8" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.2rem;">Kiran Saif</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Full-Stack Software Engineer</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-counter" id="progress-count">0%</div>
+        </div>
+    </div>
+
+    <!-- Dynamic Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" id="logo">
+                Kiran Saif<span class="logo-dot"></span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="tips.html" class="nav-link">Tips</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-cv" id="nav-cv-btn" target="_blank"><i class="fa-solid fa-download"></i> CV</a>
+                <button class="theme-toggle-btn" id="theme-toggle">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-view active" id="view-about">
+            <div class="about-heading-block">
+                <div class="about-hr-row">
+                    <span class="about-hr"></span>
+                    <h2 class="section-title" style="margin: 0;">About <span>Me</span></h2>
+                    <span class="about-hr"></span>
+                </div>
+                <p class="about-subtitle">Allow me to introduce myself.</p>
+            </div>
+
+            <div class="intro-grid">
+                <div class="intro-photo-col">
+                    <div class="snapshot-note">That's my setup <i class="fa-solid fa-arrow-right-long"></i></div>
+                    <div class="snapshot-card animate-fade-up delay-1">
+                        <div class="snapshot-inner">
+                            <div class="snapshot-avatar-ring">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                                    <circle cx="50" cy="50" r="48" fill="#111827" stroke="rgba(0, 245, 160, 0.3)" stroke-width="2"/>
+                                    <path d="M25 80 C 25 65, 75 65, 75 80 Z" fill="#1e293b"/>
+                                    <rect x="46" y="55" width="8" height="10" rx="3" fill="#fbcfe8"/>
+                                    <circle cx="50" cy="45" r="16" fill="#fbcfe8"/>
+                                    <path d="M34 45 C 34 30, 66 30, 66 45 C 62 38, 38 38, 34 45 Z" fill="#0f172a"/>
+                                    <rect x="40" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
+                                    <rect x="52" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
+                                    <line x1="48" y1="44" x2="52" y2="44" stroke="#00f5a0" stroke-width="1.5"/>
+                                    <path d="M47 52 Q 50 55, 53 52" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="snapshot-tag snapshot-tag-title">Full-Stack Developer</span>
+                            <span class="snapshot-tag">WordPress Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="intro-text-col">
+                    <p>
+                        I am a passionate Software Engineer specializing in full-stack web development and custom WordPress engineering. I build fast, responsive, and user-centric web applications with clean, scalable architecture.
+                    </p>
+                    <p>
+                        My philosophy bridges clean engineering with business goals—focusing on speed optimization, user experience, and conversion funnels to ensure client systems do not just perform, but actively grow. I've spent the last few years connecting code with commercial objectives, scaling WordPress architectures and full-stack frontends for clients across different industries.
+                    </p>
+                    <p>
+                        When I'm not building something for a client, I'm probably experimenting with a side project, reading up on the latest in web performance, or refining my own workflow so the next build goes even faster.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-two-col">
+                <div class="love-col">
+                    <h3 class="things-heading">Things I Love</h3>
+                    <div class="love-row">
+                        <span class="love-item"><i class="fa-solid fa-code"></i> Clean Code</span>
+                        <span class="love-item"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+                        <span class="love-item"><i class="fa-brands fa-git-alt"></i> Open Source</span>
+                        <span class="love-item"><i class="fa-solid fa-lightbulb"></i> Problem Solving</span>
+                    </div>
+                </div>
+
+                <div class="checklist-col">
+                    <h3 class="things-heading">Look What I Can Do</h3>
+                    <div class="checklist-columns">
+                        <ul class="do-checklist">
+                            <li><i class="fa-solid fa-plus"></i> Full-Stack Developer</li>
+                            <li><i class="fa-solid fa-plus"></i> Custom WordPress Developer</li>
+                            <li><i class="fa-solid fa-plus"></i> Python Developer</li>
+                            <li><i class="fa-solid fa-plus"></i> API Integration</li>
+                        </ul>
+                        <ul class="do-checklist">
+                            <li><i class="fa-solid fa-plus"></i> Lead Generation</li>
+                            <li><i class="fa-solid fa-plus"></i> Client Acquisition</li>
+                            <li><i class="fa-solid fa-plus"></i> Social Media Marketing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-cta-block">
+                <div class="glass-panel delay-4 animate-fade-up" style="padding: 2.2rem; text-align: center; border-color: rgba(139, 92, 246, 0.2); position: relative; overflow: hidden; max-width: 500px; margin: 0 auto;">
+                    <div style="position: absolute; top: -20px; right: -20px; font-size: 6rem; color: rgba(139, 92, 246, 0.04); pointer-events: none;"><i class="fa-solid fa-file-pdf"></i></div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Need the full offline profile?</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Download my comprehensive technical resume detailing my complete project and client stack.</p>
+                    <a href="#" class="btn-cv" id="about-cv-btn" target="_blank" style="padding: 0.7rem 2rem;"><i class="fa-solid fa-download"></i> Get Resume (PDF)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Professional Multi-Column Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 0.5rem;">
+                        Kiran Saif<span class="logo-dot"></span>
+                    </div>
+                    <p>Senior Full-Stack Engineer and Custom WordPress Specialist building lightweight digital tools that drive sales conversions and site performance.</p>
+                    <div class="footer-status">
+                        <span class="footer-status-dot"></span>
+                        Available for Contracts
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Sitemap</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="experience.html">Experience</a></li>
+                        <li><a href="tips.html">Tips</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-emerald); margin-right: 0.5rem;"></i> kiransaif.gul@gmail.com</p>
+                    <p><i class="fa-brands fa-github" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> <a href="https://github.com/KiranSaif-Developer" target="_blank">KiranSaif-Developer</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright" id="copyright-text">
+                    &copy; 2026 Kiran Saif. All Rights Reserved. Built with precision.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.75rem;">Designed strictly for professional conversions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/common.js"></script>
+</body>
+</html>

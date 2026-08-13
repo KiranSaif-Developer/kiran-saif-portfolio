@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Kiran Saif Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <!-- ============ LOGIN GATE ============ -->
+    <div class="admin-login-screen" id="admin-login-screen">
+        <div class="admin-login-card">
+            <div class="admin-login-icon"><i class="fa-solid fa-lock"></i></div>
+            <h1>Admin Access</h1>
+            <p>Enter the admin password to manage your portfolio content.</p>
+            <input type="password" id="admin-password-input" placeholder="Password" autocomplete="off">
+            <button id="admin-login-btn" class="admin-btn-primary">Unlock</button>
+            <p class="admin-login-error" id="admin-login-error" style="display:none;">Incorrect password. Try again.</p>
+        </div>
+    </div>
+
+    <!-- ============ DASHBOARD ============ -->
+    <div class="admin-dashboard" id="admin-dashboard" style="display:none;">
+
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">Kiran Saif<span class="logo-dot"></span></div>
+            <p class="admin-logo-sub">Admin Panel</p>
+
+            <nav class="admin-nav">
+                <button class="admin-nav-btn active" data-tab="projects"><i class="fa-solid fa-diagram-project"></i> Projects</button>
+                <button class="admin-nav-btn" data-tab="tips"><i class="fa-solid fa-lightbulb"></i> Tips</button>
+                <button class="admin-nav-btn" data-tab="experience"><i class="fa-solid fa-briefcase"></i> Experience</button>
+                <button class="admin-nav-btn" data-tab="skills"><i class="fa-solid fa-code"></i> Skills</button>
+                <button class="admin-nav-btn" data-tab="certifications"><i class="fa-solid fa-certificate"></i> Certifications</button>
+                <button class="admin-nav-btn" data-tab="cv"><i class="fa-solid fa-file-pdf"></i> CV</button>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <button id="admin-export-btn" class="admin-btn-secondary"><i class="fa-solid fa-download"></i> Export JSON</button>
+                <label class="admin-btn-secondary admin-import-label">
+                    <i class="fa-solid fa-upload"></i> Import JSON
+                    <input type="file" id="admin-import-input" accept=".json" hidden>
+                </label>
+                <a href="index.html" class="admin-btn-secondary admin-view-site"><i class="fa-solid fa-eye"></i> View Site</a>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="admin-main">
+
+            <!-- PROJECTS TAB -->
+            <section class="admin-tab-panel active" id="tab-projects">
+                <div class="admin-panel-header">
+                    <h2>Projects</h2>
+                    <button class="admin-btn-primary" data-add="projects"><i class="fa-solid fa-plus"></i> Add Project</button>
+                </div>
+                <div class="admin-list" id="list-projects"></div>
+            </section>
+
+            <!-- TIPS TAB -->
+            <section class="admin-tab-panel" id="tab-tips">
+                <div class="admin-panel-header">
+                    <h2>Tips</h2>
+                    <button class="admin-btn-primary" data-add="tips"><i class="fa-solid fa-plus"></i> Add Tip</button>
+                </div>
+                <div class="admin-list" id="list-tips"></div>
+            </section>
+
+            <!-- EXPERIENCE TAB -->
+            <section class="admin-tab-panel" id="tab-experience">
+                <div class="admin-panel-header">
+                    <h2>Education &amp; Experience</h2>
+                    <button class="admin-btn-primary" data-add="experience"><i class="fa-solid fa-plus"></i> Add Entry</button>
+                </div>
+                <div class="admin-list" id="list-experience"></div>
+            </section>
+
+            <!-- SKILLS TAB -->
+            <section class="admin-tab-panel" id="tab-skills">
+                <div class="admin-panel-header">
+                    <h2>Skills</h2>
+                    <button class="admin-btn-primary" data-add="skills"><i class="fa-solid fa-plus"></i> Add Category</button>
+                </div>
+                <div class="admin-list" id="list-skills"></div>
+            </section>
+
+            <!-- CERTIFICATIONS TAB -->
+            <section class="admin-tab-panel" id="tab-certifications">
+                <div class="admin-panel-header">
+                    <h2>Certifications</h2>
+                    <button class="admin-btn-primary" data-add="certifications"><i class="fa-solid fa-plus"></i> Add Certification</button>
+                </div>
+                <div class="admin-list" id="list-certifications"></div>
+            </section>
+
+            <!-- CV TAB -->
+            <section class="admin-tab-panel" id="tab-cv">
+                <div class="admin-panel-header">
+                    <h2>CV / Resume Link</h2>
+                </div>
+                <div class="admin-form-card">
+                    <p class="admin-hint">
+                        This link powers the "Download CV" button in the navbar and on the About page, on every public page.
+                        Since this is a static site with no file upload server, paste a direct URL to your CV PDF
+                        (e.g. a link from Google Drive "Anyone with the link", Dropbox, or a PDF you've uploaded to your hosting's <code>/files/</code> folder).
+                    </p>
+                    <label>CV / Resume URL</label>
+                    <input type="text" id="cv-link-input" placeholder="https://example.com/kiran-saif-cv.pdf">
+                    <button class="admin-btn-primary" id="cv-save-btn"><i class="fa-solid fa-check"></i> Save CV Link</button>
+                    <p class="admin-save-confirm" id="cv-save-confirm" style="display:none;"><i class="fa-solid fa-circle-check"></i> Saved.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ============ MODAL FORM (shared by all Add/Edit actions) ============ -->
+    <div class="admin-modal-overlay" id="admin-modal-overlay" style="display:none;">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 id="admin-modal-title">Add Entry</h3>
+                <button class="admin-modal-close" id="admin-modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="admin-modal-body" id="admin-modal-body">
+                <!-- Form fields injected dynamically -->
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn-secondary" id="admin-modal-cancel">Cancel</button>
+                <button class="admin-btn-primary" id="admin-modal-save"><i class="fa-solid fa-check"></i> Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/projects-data.js"></script>
+    <script src="js/tips-data.js"></script>
+    <script src="js/experience-data.js"></script>
+    <script src="js/skills-data.js"></script>
+    <script src="js/certifications-data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

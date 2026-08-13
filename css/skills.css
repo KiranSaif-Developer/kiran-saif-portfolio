@@ -1,0 +1,229 @@
+/* ===================================================================
+   SKILLS PAGE — Dynamic Theme Sync (Fixed Light Mode Boxes & Badges)
+   =================================================================== */
+
+.skills-section {
+    padding: 2rem 1.5rem 5rem 1.5rem;
+}
+
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ---------- Header Styling ---------- */
+/* Heading on the left, description paragraph on the right (same row) */
+.skills-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    text-align: left;
+    margin-bottom: 3.5rem;
+}
+
+.skills-header .section-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary, #ffffff);
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.skills-header .section-title span {
+    color: #00b87a;
+}
+
+.skills-subtitle {
+    color: var(--text-secondary, #94a3b8);
+    font-size: 0.95rem;
+    margin-top: 0;
+    font-weight: 400;
+    max-width: 420px;
+    text-align: right;
+}
+
+@media (max-width: 700px) {
+    .skills-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .skills-subtitle {
+        text-align: left;
+        max-width: none;
+    }
+}
+
+/* ---------- Category Grid ---------- */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Category Card — Theme Adaptive */
+.skill-category {
+    background: var(--bg-card, #0f172a);
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.2));
+}
+
+.category-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #00b87a !important;
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.category-title i {
+    color: #00d2ff !important;
+}
+
+/* ---------- Badges Wrapper & Styling ---------- */
+.badge-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Badges — Theme Adaptive Base */
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: var(--badge-bg, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--badge-border, rgba(255, 255, 255, 0.12));
+    border-radius: 10px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-primary, #ffffff);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.skill-badge i {
+    color: #00b87a !important;
+    font-size: 1.1rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.skill-badge:hover {
+    background: rgba(0, 184, 122, 0.12);
+    border-color: #00b87a;
+    color: #00b87a !important;
+    transform: translateY(-2px);
+}
+
+.skill-badge:hover i {
+    transform: scale(1.2);
+    color: #00d2ff !important;
+}
+
+/* ===================================================================
+   LIGHT MODE SPECIFIC OVERRIDES (Exact Image 2 Style)
+   Fixed: site's theme-toggle script adds ".light-theme" to <body>,
+   so that class is now included alongside the older selectors.
+   =================================================================== */
+
+body.light-theme,
+body.light-mode,
+body[data-theme="light"],
+.light-mode {
+    --bg-card: #ffffff;
+    --border-color: #00b87a;
+    --badge-bg: #eef2f1;
+    --badge-border: #e0e7e5;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+}
+
+/* Light Mode Card - White with Green Border (Image 2) */
+body.light-theme .skill-category,
+body.light-mode .skill-category,
+body[data-theme="light"] .skill-category,
+.light-mode .skill-category {
+    background: #ffffff !important;
+    border: 1px solid #00b87a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Light Mode Badge - Solid Grey Box Backgrounds (Image 2) */
+body.light-theme .skill-badge,
+body.light-mode .skill-badge,
+body[data-theme="light"] .skill-badge,
+.light-mode .skill-badge {
+    background: #eef2f1 !important;
+    border: 1px solid #e0e7e5 !important;
+    color: #0f172a !important;
+}
+
+/* Light Mode Badge Hover/Active State (Image 1 Active Style) */
+body.light-theme .skill-badge:hover,
+body.light-mode .skill-badge:hover,
+body[data-theme="light"] .skill-badge:hover,
+.light-mode .skill-badge:hover,
+body.light-theme .skill-badge.active,
+body.light-mode .skill-badge.active,
+body[data-theme="light"] .skill-badge.active {
+    background: #e2f7ef !important;
+    border: 1px solid #00b87a !important;
+    color: #00b87a !important;
+}
+
+body.light-theme .skill-badge i,
+body.light-mode .skill-badge i,
+body[data-theme="light"] .skill-badge i,
+.light-mode .skill-badge i {
+    color: #00b87a !important;
+}
+
+/* ===================================================================
+   DARK MODE SPECIFIC FORCE (Unchanged Dark Mode)
+   =================================================================== */
+
+body.dark-mode,
+body[data-theme="dark"],
+.dark-mode {
+    --bg-card: #0f172a;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --badge-bg: rgba(255, 255, 255, 0.05);
+    --badge-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+}
+
+body.dark-mode .skill-category,
+body[data-theme="dark"] .skill-category,
+.dark-mode .skill-category {
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .skill-badge,
+body[data-theme="dark"] .skill-badge,
+.dark-mode .skill-badge {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .skill-category {
+        padding: 1.3rem;
+    }
+    .skill-badge {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.85rem;
+    }
+}
