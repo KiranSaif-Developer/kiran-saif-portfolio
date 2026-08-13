@@ -9,16 +9,36 @@ function initPage() {
 }
 
 function getProjectPreviewUrl(project) {
-    if (project.image) return project.image;
+    if (project.image) {
+        let imageUrl = project.image.trim();
 
-    const liveUrl = project.url && project.url !== '#' ? project.url : null;
+        // Local project image path
+        if (
+            !imageUrl.startsWith('http://') &&
+            !imageUrl.startsWith('https://') &&
+            !imageUrl.startsWith('/')
+        ) {
+            imageUrl = '/' + imageUrl;
+        }
+
+        return imageUrl;
+    }
+
+    const liveUrl = project.url && project.url !== '#'
+        ? project.url
+        : null;
+
     if (liveUrl) {
         return `https://s0.wp.com/mshots/v1/${encodeURIComponent(liveUrl)}?w=900&h=560`;
     }
 
-    const repoUrl = project.sourceCode && project.sourceCode !== '#' ? project.sourceCode : null;
+    const repoUrl = project.sourceCode && project.sourceCode !== '#'
+        ? project.sourceCode
+        : null;
+
     if (repoUrl && repoUrl.includes('github.com')) {
         const match = repoUrl.match(/github\.com\/([^/]+)\/([^/?#]+)/);
+
         if (match) {
             const repo = match[2].replace(/\.git$/, '');
             return `https://opengraph.githubassets.com/1/${match[1]}/${repo}`;
