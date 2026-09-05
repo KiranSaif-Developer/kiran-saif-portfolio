@@ -1,6 +1,12 @@
 // ===================================================================
 // PROJECTS PAGE — Render showcase cards + category filter
 // Called by common.js via initPage() once the preloader finishes.
+//
+// FIX: renderProjects() now loads the PUBLISHED list from
+// data/projects.json (a real file, visible to every visitor),
+// instead of reading localStorage (which only exists in the browser
+// where the admin panel was used). Falls back to localStorage only
+// if the JSON file is missing/empty, so local admin previewing still works.
 // ===================================================================
 
 function initPage() {
@@ -24,21 +30,14 @@ function getProjectPreviewUrl(project) {
         return imageUrl;
     }
 
-    const liveUrl = project.url && project.url !== '#'
-        ? project.url
-        : null;
-
+    const liveUrl = project.url && project.url !== '#' ? project.url : null;
     if (liveUrl) {
         return `https://s0.wp.com/mshots/v1/${encodeURIComponent(liveUrl)}?w=900&h=560`;
     }
 
-    const repoUrl = project.sourceCode && project.sourceCode !== '#'
-        ? project.sourceCode
-        : null;
-
+    const repoUrl = project.sourceCode && project.sourceCode !== '#' ? project.sourceCode : null;
     if (repoUrl && repoUrl.includes('github.com')) {
         const match = repoUrl.match(/github\.com\/([^/]+)\/([^/?#]+)/);
-
         if (match) {
             const repo = match[2].replace(/\.git$/, '');
             return `https://opengraph.githubassets.com/1/${match[1]}/${repo}`;
@@ -153,14 +152,11 @@ function initScreenshotHandlers() {
     });
 }
 
-function renderProjects() {
+function renderProjectCards(projects) {
     const projectsContainer = document.getElementById('projects-container');
-    if (!projectsContainer) return;
-
-    const projects = JSON.parse(localStorage.getItem('portfolio_projects')) || [];
     projectsContainer.innerHTML = '';
 
-    if (projects.length === 0) {
+    if (!projects || projects.length === 0) {
         projectsContainer.innerHTML = `<p class="projects-empty">No projects added yet.</p>`;
         return;
     }
@@ -178,7 +174,7 @@ function renderProjects() {
             actionsHTML += `<a href="${escapeHTML(project.sourceCode)}" target="_blank" rel="noopener noreferrer" class="proj-btn"><i class="fa-brands fa-github"></i> Source Code</a>`;
         }
 
-        const isWordPress = project.tech.toLowerCase().includes('wordpress') || project.tech.toLowerCase().includes('woocommerce');
+        const isWordPress = (project.tech || '').toLowerCase().includes('wordpress') || (project.tech || '').toLowerCase().includes('woocommerce');
         const category = isWordPress ? 'wordpress' : 'web-apps';
         const categoryLabel = isWordPress ? 'WordPress' : 'Web App';
         const delayClass = `delay-${(idx % 5) + 1}`;
@@ -203,6 +199,23 @@ function renderProjects() {
     });
 
     initScreenshotHandlers();
+}
+
+function renderProjects() {
+    const projectsContainer = document.getElementById('projects-container');
+    if (!projectsContainer) return;
+
+    // 1) Use the PUBLISHED list first — this is what every visitor sees,
+    //    regardless of their browser or device. Comes from js/published-projects.js.
+    if (typeof PUBLISHED_PROJECTS !== 'undefined' && PUBLISHED_PROJECTS.length > 0) {
+        renderProjectCards(PUBLISHED_PROJECTS);
+        return;
+    }
+
+    // 2) Fallback: localStorage (useful while you're still building/testing
+    //    locally in the admin panel, before you've published anything yet).
+    const localProjects = JSON.parse(localStorage.getItem('portfolio_projects')) || [];
+    renderProjectCards(localProjects);
 }
 
 function initProjectFilters() {
