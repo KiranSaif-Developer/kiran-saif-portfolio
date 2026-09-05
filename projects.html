@@ -18,14 +18,14 @@
         <div class="preloader-content">
             <div class="preloader-avatar">
                 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="48" fill="#111827" stroke="rgba(0, 245, 160, 0.25)" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="48" fill="#111827" stroke="rgba(245, 166, 35, 0.25)" stroke-width="2"/>
                     <path d="M25 80 C 25 65, 75 65, 75 80 Z" fill="#1e293b"/>
                     <rect x="46" y="55" width="8" height="10" rx="3" fill="#fbcfe8"/>
                     <circle cx="50" cy="45" r="16" fill="#fbcfe8"/>
                     <path d="M34 45 C 34 30, 66 30, 66 45 C 62 38, 38 38, 34 45 Z" fill="#0f172a"/>
-                    <rect x="40" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
-                    <rect x="52" y="42" width="8" height="5" rx="1" fill="none" stroke="#00f5a0" stroke-width="1.5"/>
-                    <line x1="48" y1="44" x2="52" y2="44" stroke="#00f5a0" stroke-width="1.5"/>
+                    <rect x="40" y="42" width="8" height="5" rx="1" fill="none" stroke="#f5a623" stroke-width="1.5"/>
+                    <rect x="52" y="42" width="8" height="5" rx="1" fill="none" stroke="#f5a623" stroke-width="1.5"/>
+                    <line x1="48" y1="44" x2="52" y2="44" stroke="#f5a623" stroke-width="1.5"/>
                     <path d="M47 52 Q 50 55, 53 52" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round"/>
                     <g class="wave-animation">
                         <path d="M72 65 C 78 50, 85 52, 85 58 C 85 64, 76 75, 76 75" fill="none" stroke="#fbcfe8" stroke-width="6" stroke-linecap="round"/>
@@ -136,8 +136,8 @@
         </div>
     </footer>
 
-    <!-- Scripts: page script before common.js so initPage() is registered -->
-     <script src="js/published-projects.js"></script>
+    <!-- Scripts: published data MUST load before projects.js reads it -->
+    <script src="js/published-projects.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/common.js"></script>
 </body>
