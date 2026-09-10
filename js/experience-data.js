@@ -28,16 +28,16 @@ function getDefaultExperience() {
             ]
         },
         {
-            id: 'exp-fullstack-personal',
-            column: 'experience',
-            title: 'Full-Stack Developer',
-            company: 'Personal Projects',
-            duration: 'Ongoing',
-            bullets: [
-                'Independently designed and built 10+ full-stack web applications end-to-end.',
-                'Covered frontend, backend, and deployment for each project.'
-            ]
-        },
+    id: 'exp-fullstack-vartexsoft',
+    column: 'experience',
+    title: 'Full Stack Engineer',
+    company: 'Vartex Soft (Remote)',
+    duration: 'Jul 2026 – Aug 2026',
+    bullets: [
+        'Built and maintained web applications using Node.js, JavaScript, and PostgreSQL.',
+        'Collaborated with the team on real-world client projects, from planning to deployment.'
+    ]
+},
         {
             id: 'exp-social-cyntik',
             column: 'experience',
