@@ -50,21 +50,21 @@ const PUBLISHED_PROJECTS = [
     "image": ""
   },
   {
-    "id": "project-1788635284386",
-    "title": "ResumeAI — AI-Powered ATS Resume Analyzer",
-    "description": "Built a full-stack AI resume analyzer using Llama 3.3 (via Groq API) to score resumes for ATS compatibility, with secure auth and a serverless Flask backend on PostgreSQL (Supabase) via Vercel.",
-    "tech": "Python, Flask, PostgreSQL, Groq API (Llama 3.3)",
-    "url": "https://resume-analyzer-six-neon.vercel.app/",
-    "sourceCode": "https://github.com/KiranSaif-Developer/resume-analyzer",
-    "image": ""
-  },
-  {
     "id": "project-1789032156743",
     "title": "EchoBeats — Full-Stack Social Music Streaming App",
     "description": "Built a full-stack music streaming platform with real user auth, playlists, and live playback via the YouTube IFrame API, using a serverless Flask backend on PostgreSQL (Supabase) via Vercel.",
     "tech": "Python, Flask, PostgreSQL, JWT Auth, YouTube IFrame API",
     "url": "https://echobeats-g4d1.vercel.app",
     "sourceCode": "https://github.com/KiranSaif-Developer/echobeats",
+    "image": ""
+  },
+  {
+    "id": "project-1788635284386",
+    "title": "ResumeAI — AI-Powered ATS Resume Analyzer",
+    "description": "Built a full-stack AI resume analyzer using Llama 3.3 (via Groq API) to score resumes for ATS compatibility, with secure auth and a serverless Flask backend on PostgreSQL (Supabase) via Vercel.",
+    "tech": "Python, Flask, PostgreSQL, Groq API (Llama 3.3)",
+    "url": "https://resume-analyzer-six-neon.vercel.app/",
+    "sourceCode": "https://github.com/KiranSaif-Developer/resume-analyzer",
     "image": ""
   }
 ];
