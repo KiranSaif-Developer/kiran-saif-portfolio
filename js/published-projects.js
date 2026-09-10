@@ -57,7 +57,7 @@ const PUBLISHED_PROJECTS = [
     "url": "https://resume-analyzer-six-neon.vercel.app/",
     "sourceCode": "https://github.com/KiranSaif-Developer/resume-analyzer",
     "image": ""
-  }
+  },
   {
     "id": "project-1789032156743",
     "title": "EchoBeats — Full-Stack Social Music Streaming App",
@@ -66,5 +66,5 @@ const PUBLISHED_PROJECTS = [
     "url": "https://echobeats-g4d1.vercel.app",
     "sourceCode": "https://github.com/KiranSaif-Developer/echobeats",
     "image": ""
-}
+  }
 ];
